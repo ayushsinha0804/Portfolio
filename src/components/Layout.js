@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
         >
             <Navbar />
             <div id="content">
-                <main className="px-6 md:px-24 dl:px-36 py-24 max-w-[1600px] mx-auto min-h-screen flex flex-col">
+                <main className="px-0 md:px-12 lg:px-24 xl:px-36 py-24 max-w-[1600px] mx-auto min-h-screen flex flex-col">
                     {children}
                 </main>
             </div>

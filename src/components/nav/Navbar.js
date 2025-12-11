@@ -19,11 +19,23 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Lock body scroll when menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'h-20 bg-navy/90 shadow-lg backdrop-blur-sm' : 'h-24 bg-transparent'
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'h-16 md:h-20 bg-navy/90 shadow-lg backdrop-blur-sm' : 'h-20 md:h-24 bg-transparent'
                 }`}
         >
             <nav className="flex justify-between items-center px-6 md:px-12 h-full">
@@ -67,8 +79,12 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="md:hidden z-50">
-                    <button onClick={toggleMenu} className="text-green text-3xl">
+                <div className="md:hidden z-[60]">
+                    <button
+                        onClick={toggleMenu}
+                        className="text-green text-3xl p-2"
+                        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                    >
                         {isOpen ? <HiX /> : <HiMenuAlt3 />}
                     </button>
                 </div>
@@ -76,37 +92,52 @@ const Navbar = () => {
                 {/* Mobile Menu Overlay */}
                 <AnimatePresence>
                     {isOpen && (
-                        <motion.div
-                            initial={{ x: '100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ duration: 0.3 }}
-                            className="fixed inset-y-0 right-0 w-3/4 bg-light-navy shadow-2xl flex flex-col items-center justify-center md:hidden"
-                        >
-                            <ol className="flex flex-col items-center space-y-8 mb-8">
-                                {navLinks.map(({ url, name }, i) => (
-                                    <li key={i}>
-                                        <a
-                                            href={url}
-                                            onClick={toggleMenu}
-                                            className="flex flex-col items-center text-lightest-slate hover:text-green font-mono text-lg"
-                                        >
-                                            <span className="text-green text-sm mb-2">{`0${i + 1}.`}</span>
-                                            {name}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ol>
-                            <a
-                                href="/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                download="Resume_Ayush_Sinha.pdf"
-                                className="border border-green text-green px-8 py-4 rounded hover:bg-green/10 transition-colors font-mono text-lg"
+                        <>
+                            {/* Backdrop */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="fixed inset-0 bg-navy/80 backdrop-blur-sm z-40 md:hidden"
+                                onClick={toggleMenu}
+                            />
+                            {/* Slide-in Menu */}
+                            <motion.aside
+                                initial={{ x: '100%' }}
+                                animate={{ x: 0 }}
+                                exit={{ x: '100%' }}
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                className="fixed top-0 right-0 bottom-0 w-[min(75vw,300px)] bg-light-navy shadow-2xl flex flex-col items-center justify-center z-50 md:hidden"
+                                style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
                             >
-                                Resume
-                            </a>
-                        </motion.div>
+                                <nav className="flex flex-col items-center">
+                                    <ol className="flex flex-col items-center space-y-6 mb-10">
+                                        {navLinks.map(({ url, name }, i) => (
+                                            <li key={i}>
+                                                <a
+                                                    href={url}
+                                                    onClick={toggleMenu}
+                                                    className="flex flex-col items-center text-lightest-slate hover:text-green font-mono text-base"
+                                                >
+                                                    <span className="text-green text-xs mb-1">{`0${i + 1}.`}</span>
+                                                    {name}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                    <a
+                                        href="/resume.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        download="Resume_Ayush_Sinha.pdf"
+                                        className="border border-green text-green px-6 py-3 rounded hover:bg-green/10 transition-colors font-mono text-base"
+                                    >
+                                        Resume
+                                    </a>
+                                </nav>
+                            </motion.aside>
+                        </>
                     )}
                 </AnimatePresence>
             </nav>
