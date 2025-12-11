@@ -46,7 +46,7 @@ const Hero = () => {
     const items = [one, two, three, four, five];
 
     return (
-        <section className="flex flex-col justify-center min-h-screen max-w-[1000px] mx-auto pt-[100px]">
+        <section className="flex flex-col justify-center min-h-screen max-w-[1000px] mx-auto pt-[100px] px-6 md:px-12">
             {items.map((item, i) => (
                 <motion.div
                     key={i}

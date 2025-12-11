@@ -4,8 +4,8 @@ const About = () => {
     const skills = ['JavaScript (ES6+)', 'React', 'Node.js', 'Python', 'SQL', 'MongoDB', 'Machine Learning'];
 
     return (
-        <section id="about" className="max-w-[900px] mx-auto py-24">
-            <h2 className="flex items-center text-2xl md:text-3xl font-bold text-lightest-slate mb-10 w-full whitespace-nowrap after:content-[''] after:block after:h-[1px] after:bg-lightest-navy after:w-[300px] after:ml-5 after:relative after:top-[1px]">
+        <section id="about" className="max-w-[900px] mx-auto py-24 px-6 md:px-12">
+            <h2 className="flex items-center text-2xl md:text-3xl font-bold text-lightest-slate mb-10 w-full whitespace-nowrap after:content-[''] after:block after:h-[1px] after:bg-lightest-navy after:w-[100px] md:after:w-[300px] after:ml-5 after:relative after:top-[1px]">
                 <span className="text-green font-mono text-xl mr-2">01.</span> About Me
             </h2>
 
