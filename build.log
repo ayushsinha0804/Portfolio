@@ -1,0 +1,14 @@
+
+> portfolio-site@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Failed to compile.
+
+[eslint] 
+src\components\sections\Projects.js
+  Line 15:18:  'projects' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+
