@@ -41,7 +41,7 @@ const About = () => {
 
                 <div className="relative group w-full max-w-[300px] mx-auto md:mx-0">
                     <div className="relative z-10 w-full h-auto bg-green rounded transition-all duration-300 group-hover:bg-transparent">
-                        <img src={me} alt="Headshot" className="w-full h-auto rounded mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500"/>
+                        <img src="https://raw.githubusercontent.com/ayushsinha0804/Portfolio/master/src/components/sections/me.jpg" alt="Headshot" />
                     </div>
                     <div className="absolute top-5 left-5 w-full h-full border-2 border-green rounded -z-10 transition-all duration-300 group-hover:top-4 group-hover:left-4"></div>
                 </div>
