@@ -1,5 +1,6 @@
 import React from 'react';
-import me from "../../sections/me.jpg";
+import me from "./me.jpg";
+
 const About = () => {
     const skills = ['JavaScript (ES6+)', 'React', 'Node.js', 'Python', 'SQL', 'MongoDB', 'Machine Learning'];
 
