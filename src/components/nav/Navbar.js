@@ -42,13 +42,13 @@ const Navbar = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: i * 0.1 }}
                                 >
-                                    <Link
-                                        to={url}
+                                    <a
+                                        href={url}
                                         className="flex text-lightest-slate hover:text-green text-sm font-mono"
                                     >
                                         <span className="text-green mr-1">{`0${i + 1}.`}</span>
                                         {name}
-                                    </Link>
+                                    </a>
                                 </motion.li>
                             ))}
                     </ol>
@@ -86,14 +86,14 @@ const Navbar = () => {
                             <ol className="flex flex-col items-center space-y-8 mb-8">
                                 {navLinks.map(({ url, name }, i) => (
                                     <li key={i}>
-                                        <Link
-                                            to={url}
+                                        <a
+                                            href={url}
                                             onClick={toggleMenu}
                                             className="flex flex-col items-center text-lightest-slate hover:text-green font-mono text-lg"
                                         >
                                             <span className="text-green text-sm mb-2">{`0${i + 1}.`}</span>
                                             {name}
-                                        </Link>
+                                        </a>
                                     </li>
                                 ))}
                             </ol>
