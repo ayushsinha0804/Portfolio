@@ -17,9 +17,17 @@ const Projects = () => {
                         {/* Image - hidden on mobile, visible on desktop */}
                         <div className={`hidden md:block col-span-7 row-span-1 relative ${i % 2 === 0 ? 'md:col-start-1' : 'md:col-start-6 md:order-last'}`}>
                             <div className="w-full h-[360px] bg-green/20 rounded mix-blend-multiply hover:mix-blend-normal transition-all duration-300 relative border border-green/20">
-                                <div className="absolute inset-0 flex items-center justify-center text-green font-mono">
-                                    Project Image: {project.title}
-                                </div>
+                                {project.image ? (
+                                    <img
+                                        src={project.image.startsWith('http') ? project.image : process.env.PUBLIC_URL + project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover rounded opacity-75 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 flex items-center justify-center text-green font-mono">
+                                        Project Image: {project.title}
+                                    </div>
+                                )}
                             </div>
                         </div>
 
@@ -49,7 +57,7 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
-        </section>
+        </section >
     );
 };
 

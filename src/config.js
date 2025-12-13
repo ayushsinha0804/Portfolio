@@ -95,7 +95,7 @@ export const config = {
             tech: ['Python', 'LSTM', 'CNN', 'RNN', 'Deep Learning'],
             github: '#',
             external: '#',
-            image: '',
+            image: '/imgcap.png',
             color: '#64ffda'
         },
         {
