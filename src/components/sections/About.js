@@ -18,7 +18,7 @@ const About = () => {
 
                     <p className="mb-4">
                         Fast-forward to today, and I've had the privilege of working at{' '}
-                        <a href="https://www.ayushsinha0804.github.io/Electronic-Point-Website" target="_blank" rel="noopener noreferrer" className="text-green hover:underline">
+                        <a href="https://ayushsinha0804.github.io/Electronic-Point-Website" target="_blank" rel="noopener noreferrer" className="text-green hover:underline">
                             Electronic Point
                         </a>{' '}
                         as a Web Developer, and gaining cybersecurity experience at{' '}
