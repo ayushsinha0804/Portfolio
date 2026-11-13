@@ -1,0 +1,44 @@
+:root {
+  /* Palette — warm paper, deep ink-green, cobalt accent, ochre secondary */
+  --paper: #f2ede3;
+  --paper-2: #e6dfd0;
+  --ink: #1b3226;
+  --accent: #2a4bd7;
+  --ochre: #e3a33b;
+  --white: #fffdf8;
+  --line: color-mix(in srgb, var(--ink) 22%, transparent);
+
+  --font-serif: 'Instrument Serif', 'Iowan Old Style', Palatino, Georgia, serif;
+  --font-sans: 'Manrope', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+
+  --text-small: 0.875rem;
+  --text-base: 1rem;
+  --text-medium: clamp(1.125rem, calc(1.085rem + 0.165vw), 1.25rem);
+  --text-large: clamp(1.5rem, calc(1.2rem + 0.9vw), 2.25rem);
+  --text-hero: clamp(3.6rem, calc(2.3rem + 5.3vw), 999rem);
+  --text-display: clamp(4rem, calc(2.9rem + 11vw), 999rem);
+
+  --space-s: 2.5rem;
+  --space-xs: 3.75rem;
+  --space-l: 6.25rem;
+  --space-xl: clamp(6rem, 12.5rem, 999rem);
+
+  --radius: 15px;
+  --container-padding: clamp(20px, 2vw, 40px);
+  --grid-gap: clamp(12px, 1.45vw, 30px);
+  --header-h: 92px;
+
+  --ease-premium: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-roll: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --app-height: 100svh;
+}
+
+@media (max-width: 1024px) {
+  :root { --space-l: 4.5rem; --space-xl: 8rem; --header-h: 80px; }
+}
+@media (max-width: 480px) {
+  :root { --space-s: 1.75rem; --space-xs: 2.5rem; --space-l: 3.5rem; --space-xl: 5.5rem; --header-h: 72px; }
+}
