@@ -7,17 +7,16 @@ import PageIntro from '../components/PageIntro'
 import SpecTable from '../components/SpecTable'
 import CardSlider from '../components/CardSlider'
 import ProjectCard from '../components/ProjectCard'
+import ProjectGallery from '../components/ProjectGallery'
 import Footer from '../components/Footer'
 import RollText from '../components/RollText'
 import { TLink } from '../lib/site'
-import { useDocumentTitle } from '../lib/title'
 import NotFound from './NotFound'
 
 export default function Project() {
   const { slug } = useParams()
   const index = projects.findIndex((p) => p.slug === slug)
   const p = projects[index]
-  useDocumentTitle(p ? `${p.title} — Ayush Sinha` : 'Not found — Ayush Sinha')
   if (!p) return <NotFound />
   const next = projects[(index + 1) % projects.length]
 
@@ -68,6 +67,8 @@ export default function Project() {
           )}
         </div>
       </section>
+
+      <ProjectGallery project={p} />
 
       <section className="container project-highlights">
         <SpecTable

@@ -6,7 +6,6 @@ import FloatingNav from '../components/FloatingNav'
 import Reveal from '../components/Reveal'
 import Footer from '../components/Footer'
 import { projects } from '../data/content'
-import { useDocumentTitle } from '../lib/title'
 
 const groups = [
   {
@@ -35,7 +34,6 @@ const pieces: CoverPiece[] = [
 ]
 
 export default function Work() {
-  useDocumentTitle('Work — Ayush Sinha')
   let n = 0
   return (
     <main id="main">

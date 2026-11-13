@@ -4,10 +4,9 @@ import RollText from '../components/RollText'
 import Glyph from '../components/Glyph'
 import { person } from '../data/content'
 import { useLocalTime } from '../components/FullscreenNav'
-import { useDocumentTitle } from '../lib/title'
+import { resumeHref } from '../lib/assets'
 
 export default function Contact() {
-  useDocumentTitle('Contact — Ayush Sinha')
   const [copied, setCopied] = useState(false)
   const time = useLocalTime(person.timezone)
 
@@ -34,6 +33,10 @@ export default function Contact() {
           <span className="rhombus" aria-hidden="true" />
           {copied ? 'Copied' : 'Copy email'}
         </button>
+        <a className="pill contact__copy" href={resumeHref} target="_blank" rel="noreferrer">
+          <span className="rhombus" aria-hidden="true" />
+          Download résumé
+        </a>
       </div>
       <dl className="contact__meta">
         <div><dt>Based in</dt><dd>{person.location}</dd></div>

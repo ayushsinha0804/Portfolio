@@ -3,7 +3,6 @@ import PageIntro from '../components/PageIntro'
 import StackCards from '../components/StackCards'
 import Reveal from '../components/Reveal'
 import Footer from '../components/Footer'
-import { useDocumentTitle } from '../lib/title'
 
 const pieces: CoverPiece[] = [
   { glyph: 'branch', color: 'var(--accent)', x: 8, y: 10, size: 15, rotate: -10, speed: 1.3 },
@@ -13,7 +12,6 @@ const pieces: CoverPiece[] = [
 ]
 
 export default function Experience() {
-  useDocumentTitle('Experience — Ayush Sinha')
   return (
     <main id="main">
       <PageHero title="Experience" coverTitle={<>Where I’ve<br />shipped</>} coverBg="var(--ochre)" coverFg="var(--ink)" pieces={pieces} />

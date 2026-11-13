@@ -7,19 +7,21 @@ Vite + React + TypeScript, animated with GSAP (ScrollTrigger, SplitText), Lenis 
 ```bash
 npm install
 npm run dev       # http://localhost:5173/Portfolio/
-npm run build     # outputs dist/ (+ 404.html for GitHub Pages deep links)
+npm run build     # outputs dist/: one HTML file per route, sitemap.xml, robots.txt
 npm run preview
 ```
 
 ## Edit content
 
 All copy lives in `src/data/content.ts`: projects, experience, skills, education and contact links.
+Page titles, descriptions and share images live in `src/data/meta.ts`.
+Share images are in `public/og/`; project screenshots in `public/projects/`; the résumé is `public/Ayush_Sinha_Resume.pdf`.
 Each project's `bg`/`fg` colours drive its card, case-study page and home-belt object.
 
 ## Deploy (GitHub Pages)
 
 `vite.config.ts` sets `base: '/Portfolio/'` to match `ayushsinha0804.github.io/Portfolio`.
-`.github/workflows/deploy.yml` builds and deploys on every push to `master`.
+`.github/workflows/deploy.yml` builds and deploys on every push to `master` (Node 24, which runs `scripts/postbuild.ts` directly).
 In the repo settings, set **Pages → Source** to **GitHub Actions**.
 
 ## Structure

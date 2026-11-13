@@ -75,7 +75,8 @@
 .contact__glyph { width: clamp(70px, 8vw, 120px); color: var(--ochre); animation: float 5s var(--ease-premium) infinite alternate; }
 .contact__title { color: var(--accent); margin-top: 2vh; }
 .contact__lead { max-width: 640px; font-size: var(--text-medium); margin-top: var(--space-s); }
-.contact__email-row { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: var(--space-s); }
+.contact__email-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px 10px; margin-top: var(--space-s); }
+.contact__email { flex: 1 0 100%; text-align: center; }
 .contact__email { font-size: clamp(1.8rem, 1rem + 3.4vw, 4.6rem); line-height: 1; border-bottom: 1px solid var(--line); padding-bottom: 6px; overflow-wrap: anywhere; }
 .contact__copy { transition: background-color 0.3s, color 0.3s; }
 @media (hover: hover) { .contact__copy:hover { background: var(--ink); color: var(--paper); } }
@@ -103,4 +104,81 @@
   .project-hero__object-art { width: 52%; }
   .project-meta__grid { grid-template-columns: 1fr; row-gap: 28px; }
   .contact__meta { grid-template-columns: 1fr; }
+}
+
+/* ============ About: portrait ============ */
+.portrait {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); align-items: center;
+  padding-top: var(--space-xl); max-width: 1300px; margin-inline: auto;
+}
+.portrait__visual { position: relative; display: flex; justify-content: center; }
+.portrait__frame {
+  position: relative; overflow: hidden; width: min(100%, 460px); aspect-ratio: 0.8;
+  border-radius: 50% 50% 22px 22px / 38% 38% 22px 22px; rotate: -2deg;
+  background: var(--paper-2);
+  box-shadow: 0 40px 80px -40px color-mix(in srgb, var(--ink) 50%, transparent);
+  transition: rotate 0.9s var(--ease-soft), scale 0.9s var(--ease-soft);
+}
+.portrait__media { position: absolute; inset: -8% 0; will-change: transform; }
+.portrait__media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%;
+  filter: grayscale(1) contrast(1.1) brightness(1.06);
+  transition: filter 0.7s var(--ease-soft);
+}
+/* multiply a pale cobalt over the greyscale: a soft blue print that keeps detail */
+.portrait__tint {
+  position: absolute; inset: 0; background: #b3c3f2; mix-blend-mode: multiply;
+  transition: opacity 0.7s var(--ease-soft); pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .portrait__frame:hover { rotate: 1deg; scale: 1.02; }
+  .portrait__frame:hover img { filter: none; }
+  .portrait__frame:hover .portrait__tint { opacity: 0; }
+}
+@media (hover: none) {
+  .portrait__media img { filter: none; }
+  .portrait__tint { opacity: 0; }
+}
+.portrait__piece { position: absolute; z-index: 2; pointer-events: none; will-change: transform; }
+.portrait__piece svg { width: 100%; height: auto; }
+.portrait__piece--a { width: clamp(48px, 6vw, 90px); left: 4%; top: 8%; color: var(--ochre); }
+.portrait__piece--b { width: clamp(60px, 8vw, 120px); right: 2%; bottom: 6%; color: var(--accent); }
+.portrait__title {
+  font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; color: var(--accent);
+  font-size: var(--text-hero); line-height: 0.92;
+}
+.portrait__lead { margin-top: var(--space-s); font-size: var(--text-large); line-height: 1.25; max-width: 560px; }
+.portrait__meta { margin: var(--space-s) 0 0; display: grid; gap: 0; max-width: 560px; }
+.portrait__meta div { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.portrait__meta dt { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; padding-top: 3px; }
+.portrait__meta dd { margin: 0; font-size: var(--text-medium); }
+.portrait__resume { margin-top: var(--space-s); transition: background-color 0.3s, color 0.3s; }
+@media (hover: hover) { .portrait__resume:hover { background: var(--ink); color: var(--paper); } }
+
+@media (max-width: 1024px) {
+  .portrait { grid-template-columns: 1fr; gap: var(--space-l); }
+  .portrait__frame { width: min(78%, 420px); }
+}
+@media (max-width: 480px) {
+  .portrait__meta div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ============ Project: screenshot gallery ============ */
+.gallery {
+  display: grid; grid-template-columns: 2.6fr 1fr; gap: clamp(20px, 3vw, 48px); align-items: end;
+  padding-top: var(--space-xl); max-width: 1300px; margin-inline: auto;
+}
+.gallery__item { margin: 0; }
+.gallery__device { overflow: hidden; background: var(--white); box-shadow: 0 40px 80px -40px color-mix(in srgb, var(--ink) 45%, transparent); will-change: transform; }
+.gallery__device img { display: block; width: 100%; height: auto; }
+.gallery__device--desktop { border-radius: 12px; border: 1px solid var(--line); }
+.gallery__chrome { display: flex; gap: 7px; padding: 12px 14px; background: var(--paper-2); border-bottom: 1px solid var(--line); }
+.gallery__chrome span { width: 10px; height: 10px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 25%, transparent); }
+.gallery__device--phone { border-radius: 34px; border: 9px solid var(--ink); max-width: 320px; margin-inline: auto; }
+.gallery__caption { display: flex; align-items: center; gap: 10px; margin-top: 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.gallery__caption .rhombus { width: 8px; height: 8px; color: var(--accent); }
+.gallery__item--phone .gallery__caption { justify-content: center; }
+@media (max-width: 1024px) {
+  .gallery { grid-template-columns: 1fr; }
+  .gallery__device--phone { max-width: 260px; }
 }

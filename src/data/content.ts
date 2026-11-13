@@ -1,4 +1,5 @@
-// All copy below is sourced from Ayush's CV and his previous portfolio.
+// Copy is sourced from Ayush's CV, his previous portfolio and his public
+// GitHub repositories (github.com/ayushsinha0804).
 // Edit freely — every page renders from this file.
 
 export type GlyphName =
@@ -27,6 +28,8 @@ export type Project = {
   highlights: string[]
   stats: { value: string; label: string }[]
   links?: { label: string; href: string }[]
+  /** Paths under /public, e.g. 'projects/x.jpg' */
+  images?: { src: string; alt: string; caption: string; frame: 'desktop' | 'phone' }[]
 }
 
 export const person = {
@@ -36,6 +39,7 @@ export const person = {
   timezone: 'Asia/Kolkata',
   email: 'ayushsxnha@gmail.com',
   status: 'Open to roles',
+  resume: 'Ayush_Sinha_Resume.pdf',
   socials: [
     { label: 'GitHub', href: 'https://github.com/ayushsinha0804' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ayushsxnha/' },
@@ -70,7 +74,6 @@ export const projects: Project[] = [
       { value: 'JWT', label: 'Auth + bcrypt hashing' },
       { value: 'OSRM', label: 'Live routing & ETAs' },
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/ayushsinha0804' }],
   },
   {
     slug: 'electronic-point',
@@ -98,7 +101,14 @@ export const projects: Project[] = [
       { value: 'E2E', label: 'Content → UI → deploy' },
       { value: 'Live', label: 'In production' },
     ],
-    links: [{ label: 'Visit site', href: 'https://www.electronicpointjsr.com' }],
+    links: [
+      { label: 'Visit site', href: 'https://www.electronicpointjsr.com' },
+      { label: 'Source on GitHub', href: 'https://github.com/ayushsinha0804/Electronic-Point-Website' },
+    ],
+    images: [
+      { src: 'projects/electronic-point-desktop.jpg', alt: 'Electronic Point home page on a desktop browser', caption: 'Home page — desktop', frame: 'desktop' },
+      { src: 'projects/electronic-point-mobile.jpg', alt: 'Electronic Point home page on a phone', caption: 'Home page — mobile', frame: 'phone' },
+    ],
   },
   {
     slug: 'realtime-messaging',
@@ -123,33 +133,34 @@ export const projects: Project[] = [
       { value: 'Socket', label: 'Real-time transport' },
       { value: 'MERN', label: 'Stack' },
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/ayushsinha0804' }],
   },
   {
     slug: 'image-captioning',
     title: 'Image Captioning',
-    kicker: 'CNN / LSTM encoder–decoder',
+    kicker: 'From LSTM notebook to web app',
     category: 'ML & Security',
     year: '2024',
     role: 'ML & full-stack',
-    stack: ['Python', 'TensorFlow', 'CNN', 'LSTM'],
+    stack: ['Python', 'TensorFlow', 'VGG16', 'LSTM', 'FastAPI', 'BLIP'],
     glyph: 'eye',
     shape: { radius: '50%', aspect: 1.3, scale: 1, pad: '10% 17%', tilt: 2 },
     bg: '#b9c9f0',
     fg: '#1b3226',
-    summary: 'A full-stack system that writes a sentence for every picture.',
+    summary: 'Upload a photo, get a sentence back — a captioning web app with its from-scratch training notebook alongside.',
     intro:
-      'A full-stack image captioning system built on a CNN encoder and an LSTM decoder, trained on an 8,000-image dataset.',
+      'Started as a VGG16 encoder and LSTM decoder trained from scratch on Flickr8k, and grew into a working web app: upload an image and a pretrained BLIP vision-language model, served through FastAPI, writes its caption.',
     highlights: [
-      'Built a CNN/LSTM encoder–decoder model for caption generation.',
-      'Processed and trained on an 8,000-image dataset.',
-      'Reached a BLEU-1 score of 0.52.',
+      'Trained a VGG16 encoder + LSTM decoder from scratch on the 8,000-image Flickr8k dataset, reaching a BLEU-1 score of 0.52.',
+      'Built a web app around it: a FastAPI backend with caption, health and frontend endpoints, and an HTML/JS upload interface.',
+      'Serves Salesforce’s pretrained BLIP model from Hugging Face for production-quality captions, with weights cached after the first run.',
+      'Kept the original training notebook — preprocessing, training, BLEU evaluation and inference — as a reference pipeline.',
     ],
     stats: [
       { value: '8,000', label: 'Training images' },
       { value: '0.52', label: 'BLEU-1 score' },
+      { value: 'API', label: 'FastAPI caption service' },
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/ayushsinha0804' }],
+    links: [{ label: 'Source on GitHub', href: 'https://github.com/ayushsinha0804/Image-Captioning-System' }],
   },
   {
     slug: 'ddos-detection',
@@ -161,7 +172,7 @@ export const projects: Project[] = [
     stack: ['Python', 'Scikit-Learn', 'Pandas', 'Decision Tree'],
     glyph: 'shield',
     shape: { radius: '26px 26px 50% 50% / 26px 26px 42% 42%', aspect: 0.84, scale: 0.84, pad: '14% 14% 24%', tilt: -2.5 },
-    bg: '#c94f2c',
+    bg: '#b54728', // darkened from #c94f2c for WCAG AA contrast
     fg: '#f2ede3',
     summary: 'A decision-tree classifier that separates attack traffic from normal traffic.',
     intro:
@@ -175,32 +186,35 @@ export const projects: Project[] = [
       { value: '100k', label: 'Traffic records' },
       { value: '91%', label: 'Accuracy' },
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/ayushsinha0804' }],
+    links: [{ label: 'Notebook on GitHub', href: 'https://github.com/ayushsinha0804/DDos-Attack-Detection' }],
   },
   {
     slug: 'heart-disease',
     title: 'Heart Disease Predictor',
-    kicker: 'Supervised learning',
+    kicker: 'Random forest + FastAPI',
     category: 'ML & Security',
-    role: 'ML engineer',
-    stack: ['Python', 'Scikit-Learn', 'Logistic Regression'],
+    role: 'ML & full-stack',
+    stack: ['Python', 'Scikit-Learn', 'FastAPI', 'React', 'Vite', 'Tailwind'],
     glyph: 'heart',
+    year: '2023',
     shape: { radius: '58% 42% 47% 53% / 46% 55% 45% 54%', aspect: 1.04, scale: 0.86, pad: '16%', tilt: 3 },
     bg: '#8fae8b',
     fg: '#1b3226',
-    summary: 'A logistic-regression model that predicts heart disease from patient data.',
+    summary: 'A heart-disease prediction app: a random-forest model behind a FastAPI service and a React interface.',
     intro:
-      'A supervised learning model using logistic regression to predict heart disease, trained and analysed on a 1,000-entry Kaggle dataset.',
+      'A heart-disease prediction application: a random-forest classifier trained on clinical data, checked with feature-importance analysis, and served through a FastAPI backend to a React + Vite + Tailwind frontend.',
     highlights: [
-      'Analysed a Kaggle dataset of 1,000 entries.',
-      'Trained a logistic-regression classifier.',
-      'Reached 82% accuracy.',
+      'Trained a random-forest classifier (100 trees, max depth 7) reaching 82% test accuracy.',
+      'Ran feature-importance analysis to check the model leans on clinically meaningful signals — thalassemia status, chest-pain type, major vessel count and exercise-induced angina.',
+      'Served predictions through a FastAPI backend with automatic request validation.',
+      'Built a bento-grid frontend with React, Vite and Tailwind.',
     ],
     stats: [
-      { value: '1,000', label: 'Patient records' },
-      { value: '82%', label: 'Accuracy' },
+      { value: '82%', label: 'Test accuracy' },
+      { value: '100', label: 'Trees in the forest' },
+      { value: 'API', label: 'FastAPI backend' },
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/ayushsinha0804' }],
+    links: [{ label: 'Source on GitHub', href: 'https://github.com/ayushsinha0804/HeartDiseasePredictor' }],
   },
   {
     slug: 'cipher-kit',

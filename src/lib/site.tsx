@@ -6,6 +6,8 @@ import { useLocation, useNavigate, useHref } from 'react-router-dom'
 import Lenis from 'lenis'
 import { gsap, ScrollTrigger } from './gsap'
 import { prefersReducedMotion } from './media'
+import { preloadRoute } from '../routes'
+import { metaFor } from '../data/meta'
 
 type SiteCtx = {
   ready: boolean
@@ -69,6 +71,13 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     else l.start()
   }, [ready, menuOpen])
 
+  // Per-route <title> and description
+  useEffect(() => {
+    const m = metaFor(location.pathname)
+    document.title = m?.title ?? 'Page not found — Ayush Sinha'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', m?.description ?? '')
+  }, [location.pathname])
+
   // Back/forward navigation (no transition): reset scroll position
   useLayoutEffect(() => {
     if (viaTransition.current) return
@@ -96,27 +105,32 @@ export function SiteProvider({ children }: { children: ReactNode }) {
       }
       busy.current = true
       viaTransition.current = true
+      const chunk = preloadRoute(to).catch(() => undefined)
       document.body.classList.add('is-transitioning')
       lenisRef.current?.stop()
       if (labelRef.current) labelRef.current.textContent = labelFor(to)
 
-      gsap
-        .timeline({
-          onComplete: () => {
-            busy.current = false
-            viaTransition.current = false
-            document.body.classList.remove('is-transitioning')
-            gsap.set(panel, { autoAlpha: 0 })
-          },
-        })
-        .set(panel, { autoAlpha: 1, yPercent: 100 })
+      const tl = gsap.timeline({
+        onComplete: () => {
+          busy.current = false
+          viaTransition.current = false
+          document.body.classList.remove('is-transitioning')
+          gsap.set(panel, { autoAlpha: 0 })
+        },
+      })
+      tl.set(panel, { autoAlpha: 1, yPercent: 100 })
         .set(labelRef.current, { yPercent: 110 })
         .to(panel, { yPercent: 0, duration: 0.9, ease: 'premium' })
         .fromTo(line, { x: '-100%', opacity: 1 }, { x: '100%', duration: 0.9, ease: 'power3.inOut' }, 0)
         .to(labelRef.current, { yPercent: 0, duration: 0.6, ease: 'expo' }, 0.45)
         .add(() => {
-          navigate(to)
-          setMenuOpen(false)
+          // hold under the cover until the destination's code has loaded
+          tl.pause()
+          chunk.then(() => {
+            navigate(to)
+            setMenuOpen(false)
+            tl.resume()
+          })
         })
         .add(() => {
           window.scrollTo(0, 0)

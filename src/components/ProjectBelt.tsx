@@ -4,6 +4,8 @@ import { prefersReducedMotion } from '../lib/media'
 import { TLink, useSite } from '../lib/site'
 import { projects } from '../data/content'
 import Glyph from './Glyph'
+import RollText from './RollText'
+import { resumeHref } from '../lib/assets'
 import { projectVars } from './shapeStyle'
 
 const wrap = (v: number, m: number) => ((v % m) + m) % m
@@ -17,7 +19,7 @@ export default function ProjectBelt() {
   const { ready } = useSite()
   const root = useRef<HTMLDivElement>(null)
   const rail = useRef<HTMLDivElement>(null)
-  const state = useRef({ target: 0, current: 0, skew: 0, spacing: 1, total: 1, half: 1, dragging: false, moved: false, lastInput: 0 })
+  const state = useRef({ target: 0, current: 0, skew: 0, spacing: 1, total: 1, half: 1, dragging: false, moved: false, hovering: false, lastInput: 0 })
   const [active, setActive] = useState(0)
   const activeRef = useRef(0)
 
@@ -41,7 +43,8 @@ export default function ProjectBelt() {
     window.addEventListener('resize', measure)
 
     const tick = () => {
-      if (!reduced && !s.dragging && performance.now() - s.lastInput > 2200) s.target -= 0.35 // idle drift
+      // idle drift: paused while hovered, dragged, recently used or in a hidden tab
+      if (!reduced && !s.dragging && !s.hovering && !document.hidden && performance.now() - s.lastInput > 2200) s.target -= 0.35
       const prev = s.current
       s.current += (s.target - s.current) * (reduced ? 1 : 0.085)
       const vel = s.current - prev
@@ -136,7 +139,12 @@ export default function ProjectBelt() {
     window.addEventListener('pointerup', onUp)
     window.addEventListener('pointercancel', onUp)
     el.addEventListener('click', onClick, true)
-    window.addEventListener('keydown', onKey)
+    const onEnter = (e: PointerEvent) => { if (e.pointerType === 'mouse') s.hovering = true }
+    const onLeave = () => { s.hovering = false }
+    // arrow keys only steer the belt while focus is inside it
+    el.addEventListener('keydown', onKey)
+    el.addEventListener('pointerenter', onEnter)
+    el.addEventListener('pointerleave', onLeave)
     return () => {
       el.removeEventListener('wheel', onWheel)
       el.removeEventListener('pointerdown', onDown)
@@ -144,7 +152,9 @@ export default function ProjectBelt() {
       window.removeEventListener('pointerup', onUp)
       window.removeEventListener('pointercancel', onUp)
       el.removeEventListener('click', onClick, true)
-      window.removeEventListener('keydown', onKey)
+      el.removeEventListener('keydown', onKey)
+      el.removeEventListener('pointerenter', onEnter)
+      el.removeEventListener('pointerleave', onLeave)
     }
   }, [])
 
@@ -180,7 +190,13 @@ export default function ProjectBelt() {
   const p = projects[active]
 
   return (
-    <section className="belt" ref={root} aria-roledescription="carousel" aria-label="Selected projects">
+    <section
+      className="belt"
+      ref={root}
+      tabIndex={0}
+      aria-roledescription="carousel"
+      aria-label="Selected projects. Use the left and right arrow keys to browse."
+    >
       <div className="belt__shape" aria-hidden="true" />
       <svg className="belt__badge" viewBox="0 0 200 200" aria-hidden="true">
         <defs>
@@ -222,9 +238,14 @@ export default function ProjectBelt() {
       </div>
 
       <div className="home-bar container">
-        <p className="home-bar__intro">
-          Full-stack developer from Delhi — backend, frontend and the deployment in between.
-        </p>
+        <div className="home-bar__intro">
+          <p className="home-bar__role">Full-stack developer</p>
+          <p className="home-bar__stack">From Delhi · Node.js, TypeScript, PostgreSQL, React &amp; Flutter</p>
+          <div className="home-bar__ctas">
+            <TLink to="/work" className="pill home-bar__cta"><RollText text="View work" /></TLink>
+            <a href={resumeHref} className="pill home-bar__cta" target="_blank" rel="noreferrer"><RollText text="Résumé ↗" /></a>
+          </div>
+        </div>
         <p className="home-bar__prompt">
           <span className="home-bar__prompt-line" aria-hidden="true" />
           Scroll or drag to explore

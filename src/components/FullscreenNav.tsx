@@ -4,6 +4,7 @@ import { gsap } from '../lib/gsap'
 import { TLink, useSite } from '../lib/site'
 import { person } from '../data/content'
 import RollText from './RollText'
+import { resumeHref } from '../lib/assets'
 
 const primary = [
   { to: '/', label: 'Index' },
@@ -84,6 +85,7 @@ export default function FullscreenNav() {
       <div className="fp-nav__footer">
         <ul className="fp-nav__secondary">
           <li className="fp-nav__fade"><TLink to="/contact" className="fp-nav__small"><RollText text="Contact" /></TLink></li>
+          <li className="fp-nav__fade"><a className="fp-nav__small" href={resumeHref} target="_blank" rel="noreferrer"><RollText text="Résumé" /></a></li>
           {person.socials.map((s) => (
             <li className="fp-nav__fade" key={s.label}>
               <a className="fp-nav__small" href={s.href} target="_blank" rel="noreferrer"><RollText text={s.label} /></a>
