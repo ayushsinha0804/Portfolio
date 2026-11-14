@@ -437,17 +437,28 @@ body.is-transitioning .page-transition { pointer-events: auto; }
 @keyframes scan { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 .home-bar__side { justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: clamp(22px, 4vh, 40px); min-width: 0; width: min(100%, 400px); }
 
-/* Compact GitHub calendar, sits between the belt and the project name */
-.gh-cal { width: 100%; pointer-events: auto; }
+/* Compact GitHub calendar, sits between the belt and the project name.
+   Expands into a floating card on hover (tap on touch). */
+.gh-cal { width: 100%; display: flex; justify-content: flex-end; pointer-events: auto; }
+.gh-cal__panel { position: relative; isolation: isolate; flex: none; width: 100%; }
+.gh-cal__bg {
+  position: absolute; inset: -18px -18px -18px; z-index: -1;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: 0 40px 80px -40px color-mix(in srgb, var(--ink) 45%, transparent);
+  clip-path: inset(100% 0% 0% 100% round 20px);
+}
 .gh-cal__label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .gh-cal__label-main { font-variant-numeric: tabular-nums; }
 .gh-cal__label-link { flex: none; color: var(--accent); transition: opacity 0.3s; }
 @media (hover: hover) { .gh-cal__label:hover .gh-cal__label-link { opacity: 0.6; } }
-.gh-cal__grid {
+.gh-cal__reveal { height: 0; overflow: hidden; }
+.gh-cal__months, .gh-cal__grid {
   display: grid; gap: clamp(1.5px, 0.18vw, 2.5px);
   grid-template-columns: repeat(var(--weeks), minmax(0, 1fr));
-  grid-template-rows: repeat(7, auto);
 }
+.gh-cal__months { padding-bottom: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
+.gh-cal__months span { white-space: nowrap; }
+.gh-cal__grid { grid-template-rows: repeat(7, auto); cursor: default; }
 .gh-cal__cell {
   display: block; aspect-ratio: 1; border-radius: 28%;
   background: color-mix(in srgb, var(--ink) 9%, transparent);
@@ -457,7 +468,16 @@ body.is-transitioning .page-transition { pointer-events: auto; }
 .gh-cal__cell[data-level='2'] { background: color-mix(in srgb, var(--accent) 56%, var(--paper)); }
 .gh-cal__cell[data-level='3'] { background: color-mix(in srgb, var(--accent) 80%, var(--paper)); }
 .gh-cal__cell[data-level='4'] { background: var(--accent); }
-@media (hover: hover) { .gh-cal__cell:hover { transform: scale(1.6); position: relative; z-index: 1; } }
+@media (hover: hover) { .gh-cal__grid .gh-cal__cell:hover { transform: scale(1.6); position: relative; z-index: 1; } }
+.gh-cal__foot { display: flex; justify-content: space-between; align-items: end; gap: 16px; padding-top: 14px; }
+.gh-cal__stats { display: flex; gap: 22px; margin: 0; }
+.gh-cal__stats dt { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.gh-cal__stats dd { margin: 4px 0 0; font-family: var(--font-display); font-weight: var(--display-weight); font-size: 1.6rem; line-height: 1; color: var(--accent); }
+.gh-cal__legend { display: flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.gh-cal__legend .gh-cal__cell { width: 10px; }
+.gh-cal__legend span:first-child { margin-right: 4px; }
+.gh-cal__legend span:last-child { margin-left: 4px; }
+@media (max-width: 1024px) { .gh-cal__bg { inset: -12px; } }
 @media (max-height: 640px) and (min-width: 641px) { .home-bar__activity { display: none; } }
 .home-bar__current { justify-self: end; align-self: stretch; text-align: right; display: flex; flex-direction: column; gap: 4px; }
 .home-bar__count { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }

@@ -10,6 +10,7 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 ### Added
 - **GitHub contribution calendar** on the home page, in the bottom-right corner between the project belt and the current project's name.
   - It's a compact year grid in the site's colours. Hovering a day shows that day's count.
+  - Hovering the widget expands it into a floating card (tap on touch screens): the card wipes open from the corner and the grid widens. Month labels, active days, the most contributions in a day and a legend rise into view.
   - The data is fetched from GitHub by `scripts/contributions.ts` and stored in `src/data/contributions.json`.
   - The deploy workflow refreshes it on every build and once a day (06:00 IST).
 
