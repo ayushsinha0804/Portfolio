@@ -82,16 +82,16 @@ export const projects: Project[] = [
     category: 'Full-stack',
     year: '2026',
     role: 'Web developer intern — content, UI, deployment',
-    stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'DNS', 'Claude Code'],
+    stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'DNS'],
     glyph: 'window',
     shape: { radius: '30px', aspect: 1.18, scale: 1, pad: '12% 12%', tilt: 1.5 },
     bg: '#e3a33b',
     fg: '#1b3226',
     summary: 'An end-to-end rebuild of a business website, from unstructured documents to production.',
     intro:
-      'I rebuilt Electronic Point’s website end to end — content, UI and deployment — working from unstructured source documents and using an AI coding agent as a daily tool while independently verifying everything it wrote.',
+      'I rebuilt Electronic Point’s website end to end — content, UI and deployment — working from unstructured source documents and verifying every change before it went live.',
     highlights: [
-      'Caught a security issue (an exposed API key) and dead code introduced by the coding agent before release.',
+      'Caught a security issue (an exposed API key) and dead code before release.',
       'Audited the site for production-readiness unprompted; fixed a non-functional contact form, exposed credentials and missing SEO infrastructure.',
       'Diagnosed a live DNS/hosting misconfiguration from DNS records and HTTP headers, then re-architected the GitHub Pages deployment pipeline.',
       'Owned the release through git: resolved diverged branch history, kept clean commit hygiene and pushed to production.',
@@ -245,9 +245,9 @@ export const experience = [
     role: 'Web Developer Intern',
     period: 'Feb 2026 — Present',
     location: 'Jamshedpur, India',
-    focus: 'Full-stack web, deployment, AI-assisted development',
+    focus: 'Full-stack web, deployment, security',
     points: [
-      'Rebuilt a business website end to end from unstructured source documents, verifying and correcting AI-agent output — including an exposed API key and dead code.',
+      'Rebuilt a business website end to end from unstructured source documents, catching an exposed API key and dead code before release.',
       'Audited for production-readiness unprompted: fixed a broken contact form, exposed credentials and missing SEO.',
       'Diagnosed a live DNS/hosting misconfiguration and re-architected the GitHub Pages deployment pipeline.',
       'Owned the release through git, from diverged history to production.',
@@ -286,14 +286,13 @@ export const skills = [
   { label: 'Databases', value: 'PostgreSQL, MongoDB, Microsoft SQL Server, MySQL' },
   { label: 'Frontend', value: 'React, Flutter, HTML, CSS' },
   { label: 'Infrastructure', value: 'Git, GitHub Pages & Actions, DNS & deployment, automated testing, Socket.io' },
-  { label: 'AI-assisted', value: 'Claude Code, GitHub Copilot' },
   { label: 'ML & Data', value: 'TensorFlow, Scikit-Learn, OpenCV, Pandas, Matplotlib' },
 ]
 
 export const education = [
   {
     label: 'B.Tech, Computer Science & Engineering',
-    value: 'Siksha ‘O’ Anusandhan University, Bhubaneswar · 2020 — 2024 · CGPA 7.9',
+    value: 'Siksha ‘O’ Anusandhan University, Bhubaneswar · 2020 — 2024',
   },
   { label: 'Certification', value: 'Supervised Machine Learning — Stanford University' },
   { label: 'Certification', value: 'Problem Solving — HackerRank' },

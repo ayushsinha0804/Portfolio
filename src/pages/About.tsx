@@ -25,11 +25,11 @@ export default function About() {
       <Portrait />
 
       <PinnedPause>
-        Treat the agent’s<br />output as untrusted.<br />Ship what you’ve verified.
+        Read every line.<br />Trust nothing unverified.<br />Ship what you’ve checked.
       </PinnedPause>
 
       <PageIntro>
-        I build primarily with AI coding agents, and I read what they write. On my first client release that habit caught an exposed API key and dead code before either reached production. I’m comfortable debugging across logs, DNS, databases and third-party APIs.
+        I read every line before it ships. On my first client release that habit caught an exposed API key and dead code before either reached production. I’m comfortable debugging across logs, DNS, databases and third-party APIs.
       </PageIntro>
 
       <DepthTitle word="Ship">

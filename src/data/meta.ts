@@ -32,7 +32,7 @@ export const pages: PageMeta[] = [
     path: '/about',
     title: 'About — Ayush Sinha',
     description:
-      'Full-stack developer from Delhi who builds with AI coding agents and treats their output as untrusted. Toolkit, education and certifications.',
+      'Full-stack developer from Delhi who verifies everything before it ships. Toolkit, education and certifications.',
     image: 'og/default.png',
   },
   {

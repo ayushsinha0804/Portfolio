@@ -39,7 +39,7 @@ export default function Work() {
     <main id="main">
       <PageHero title="Work" coverTitle={<>Built, tested,<br />shipped</>} pieces={pieces} />
       <PageIntro after={<><strong>{projects.length} projects</strong> across full-stack engineering, machine learning and security.</>}>
-        I build across the backend, the frontend and the deployment in between — and I treat every line an AI agent writes as something to verify before it ships.
+        I build across the backend, the frontend and the deployment in between — and I verify every line before it ships.
       </PageIntro>
 
       <div id="work-groups">
