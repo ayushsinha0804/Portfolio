@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import '@fontsource/instrument-serif/400.css'
+import '@fontsource/montserrat/600.css'
 import '@fontsource/manrope/400.css'
 import '@fontsource/manrope/600.css'
 import './styles/tokens.css'

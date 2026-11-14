@@ -53,10 +53,9 @@ img, svg { display: block; max-width: 100%; }
 /* Text that is about to be revealed by JS stays hidden to avoid a flash */
 html.js-motion [data-reveal]:not(.is-revealed) { visibility: hidden; }
 
-.serif { font-family: var(--font-serif); font-weight: 400; }
+.serif { font-family: var(--font-display); font-weight: var(--display-weight); }
 .display {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-display); font-weight: var(--display-weight);
   font-size: var(--text-display);
   line-height: 0.9;
   text-transform: uppercase;

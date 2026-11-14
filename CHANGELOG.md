@@ -5,6 +5,20 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 
 ---
 
+## 2026-11-14 — Typography and copy
+
+### Changed
+- **Headings now use Montserrat** (SemiBold) instead of Instrument Serif. Body text stays Manrope.
+  - Large heading sizes are scaled down so the wider letterforms fit on phones.
+  - Link-preview images were regenerated in the new font.
+- The home link in the menu and on the page transition is now called **Home** instead of "Index".
+- Tightened the copy on the About, Work and Experience pages.
+
+### Removed
+- CGPA from the education entry.
+
+---
+
 ## 2026-11-14 — Polish, performance and SEO
 
 Commit `d6d3417`
