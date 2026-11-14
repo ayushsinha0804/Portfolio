@@ -26,7 +26,7 @@ export const useSite = () => {
 }
 
 const routeLabels: Record<string, string> = {
-  '/': 'Index',
+  '/': 'Ayush Sinha',
   '/work': 'Work',
   '/experience': 'Experience',
   '/about': 'About',

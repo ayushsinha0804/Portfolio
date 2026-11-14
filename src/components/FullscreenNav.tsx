@@ -7,7 +7,7 @@ import RollText from './RollText'
 import { resumeHref } from '../lib/assets'
 
 const primary = [
-  { to: '/', label: 'Index' },
+  { to: '/', label: 'Ayush Sinha' },
   { to: '/work', label: 'Work' },
   { to: '/experience', label: 'Experience' },
   { to: '/about', label: 'About' },
