@@ -5,6 +5,7 @@ import Portrait from '../components/Portrait'
 import DepthTitle from '../components/DepthTitle'
 import SpecTable from '../components/SpecTable'
 import Footer from '../components/Footer'
+import ContributionCalendar from '../components/ContributionCalendar'
 import { education, skills } from '../data/content'
 
 const pieces: CoverPiece[] = [
@@ -37,6 +38,7 @@ export default function About() {
       </DepthTitle>
 
       <section className="container about-tables">
+        <ContributionCalendar />
         <SpecTable title="Toolkit" columns={['Area', 'Tools']} rows={skills} />
         <SpecTable title="Education & recognition" columns={['Type', 'Detail']} rows={education} />
       </section>

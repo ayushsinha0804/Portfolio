@@ -7,6 +7,12 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 
 ## 2026-11-14 — Typography and copy
 
+### Added
+- **GitHub contribution calendar** on the About page, drawn in the site's colours, with totals, active days and the most contributions in a day.
+  - Cells fill in week by week on scroll, and hovering or tapping a day shows its count.
+  - On phones it scrolls sideways and opens on the latest weeks.
+  - The data is fetched from GitHub by `scripts/contributions.ts` and stored in `src/data/contributions.json`.
+
 ### Changed
 - **Headings now use Montserrat** (SemiBold) instead of Instrument Serif. Body text stays Manrope.
   - Large heading sizes are scaled down so the wider letterforms fit on phones.
