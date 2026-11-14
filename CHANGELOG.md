@@ -8,10 +8,10 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 ## 2026-11-14 — Typography and copy
 
 ### Added
-- **GitHub contribution calendar** on the About page, drawn in the site's colours, with totals, active days and the most contributions in a day.
-  - Cells fill in week by week on scroll, and hovering or tapping a day shows its count.
-  - On phones it scrolls sideways and opens on the latest weeks.
+- **GitHub contribution calendar** on the home page, in the bottom-right corner between the project belt and the current project's name.
+  - It's a compact year grid in the site's colours. Hovering a day shows that day's count.
   - The data is fetched from GitHub by `scripts/contributions.ts` and stored in `src/data/contributions.json`.
+  - The deploy workflow refreshes it on every build and once a day (06:00 IST).
 
 ### Changed
 - **Headings now use Montserrat** (SemiBold) instead of Instrument Serif. Body text stays Manrope.

@@ -4,6 +4,7 @@ import { prefersReducedMotion } from '../lib/media'
 import { TLink, useSite } from '../lib/site'
 import { projects } from '../data/content'
 import Glyph from './Glyph'
+import ContributionCalendar from './ContributionCalendar'
 import RollText from './RollText'
 import { resumeHref } from '../lib/assets'
 import { projectVars } from './shapeStyle'
@@ -250,10 +251,13 @@ export default function ProjectBelt() {
           <span className="home-bar__prompt-line" aria-hidden="true" />
           Scroll or drag to explore
         </p>
-        <p className="home-bar__current">
+        <div className="home-bar__side">
+          <ContributionCalendar className="home-bar__activity" />
+          <p className="home-bar__current">
           <span className="home-bar__count">{String(active + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
           <span key={p.slug} className="home-bar__name">{p.title}</span>
-        </p>
+          </p>
+        </div>
       </div>
     </section>
   )
