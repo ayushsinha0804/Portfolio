@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="site-footer__row">
         <a className="site-footer__email" href={`mailto:${person.email}`}><RollText text={person.email} /></a>
         <ul className="site-footer__links">
-          <li><a href={resumeHref} target="_blank" rel="noreferrer"><RollText text="Résumé" /></a></li>
+          <li><a href={resumeHref} target="_blank" rel="noreferrer"><RollText text="Resume" /></a></li>
           {person.socials.map((s) => (
             <li key={s.label}><a href={s.href} target="_blank" rel="noreferrer"><RollText text={s.label} /></a></li>
           ))}

@@ -38,7 +38,7 @@ export const pages: PageMeta[] = [
   {
     path: '/contact',
     title: 'Contact — Ayush Sinha',
-    description: 'Open to full-stack and backend roles. Email, GitHub, LinkedIn and résumé.',
+    description: 'Open to full-stack and backend roles. Email, GitHub, LinkedIn and resume.',
     image: 'og/default.png',
   },
   ...projects.map((p) => ({

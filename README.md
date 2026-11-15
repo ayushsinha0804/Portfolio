@@ -15,7 +15,7 @@ npm run preview
 
 All copy lives in `src/data/content.ts`: projects, experience, skills, education and contact links.
 Page titles, descriptions and share images live in `src/data/meta.ts`.
-Share images are in `public/og/`; project screenshots in `public/projects/`; the résumé is `public/Ayush_Sinha_Resume.pdf`.
+Share images are in `public/og/`; project screenshots in `public/projects/`; the resume is `public/Ayush_Sinha_Resume.pdf`.
 Each project's `bg`/`fg` colours drive its card, case-study page and home-belt object.
 
 ## Deploy (GitHub Pages)

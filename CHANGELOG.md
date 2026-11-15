@@ -5,6 +5,13 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 
 ---
 
+## 2026-11-15 — Copy
+
+### Changed
+- "Résumé" is now spelled "Resume" across the site: the menu, footer, home page, About, Contact and the Contact page's search description.
+
+---
+
 ## 2026-11-14 — Typography and copy
 
 ### Added
@@ -32,8 +39,8 @@ Commit `d6d3417`
 
 ### Added
 - **Profile photo** on the About page, in an arch-shaped frame that wipes open on scroll, drifts with parallax and goes from tinted to full colour on hover.
-- **Résumé download** (`public/Ayush_Sinha_Resume.pdf`) linked from the menu, the footer, About, Contact and the home page.
-- **Home page intro**: "Full-stack developer", tech stack, and *View work* / *Résumé* buttons. Pinned to the top on phones.
+- **Resume download** (`public/Ayush_Sinha_Resume.pdf`) linked from the menu, the footer, About, Contact and the home page.
+- **Home page intro**: "Full-stack developer", tech stack, and *View work* / *Resume* buttons. Pinned to the top on phones.
 - **Project screenshots**: the Electronic Point case study shows desktop and phone screenshots of the live site in device frames.
 - **Link previews**: share images (1200×630) for the site and each project, so links show a card on LinkedIn, WhatsApp, X and similar.
 - **SEO**:

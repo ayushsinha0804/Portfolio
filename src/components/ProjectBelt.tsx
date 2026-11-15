@@ -244,7 +244,7 @@ export default function ProjectBelt() {
           <p className="home-bar__stack">From Delhi · Node.js, TypeScript, PostgreSQL, React &amp; Flutter</p>
           <div className="home-bar__ctas">
             <TLink to="/work" className="pill home-bar__cta"><RollText text="View work" /></TLink>
-            <a href={resumeHref} className="pill home-bar__cta" target="_blank" rel="noreferrer"><RollText text="Résumé ↗" /></a>
+            <a href={resumeHref} className="pill home-bar__cta" target="_blank" rel="noreferrer"><RollText text="Resume ↗" /></a>
           </div>
         </div>
         <p className="home-bar__prompt">

@@ -60,7 +60,7 @@ export default function Portrait() {
           <div><dt>Currently</dt><dd>{current.role}, {current.company}</dd></div>
           <div><dt>Status</dt><dd>{person.status}</dd></div>
         </dl>
-        <a className="pill portrait__resume" href={resumeHref} target="_blank" rel="noreferrer"><RollText text="Download résumé ↗" /></a>
+        <a className="pill portrait__resume" href={resumeHref} target="_blank" rel="noreferrer"><RollText text="Download resume ↗" /></a>
       </div>
     </section>
   )

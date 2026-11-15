@@ -35,7 +35,7 @@ export default function Contact() {
         </button>
         <a className="pill contact__copy" href={resumeHref} target="_blank" rel="noreferrer">
           <span className="rhombus" aria-hidden="true" />
-          Download résumé
+          Download resume
         </a>
       </div>
       <dl className="contact__meta">
