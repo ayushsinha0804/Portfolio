@@ -8,6 +8,8 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 ## 2026-11-19 — Lowercase name
 
 ### Changed
+- **Project hover:** hovering a project on the home page now pops it up. The card rises, grows by about 6%, eases its tilt, casts a deeper shadow and moves in front of its neighbours. Keyboard focus gets the same effect, with an accent ring.
+- **Fixed:** cards now keep their resting tilt and hover effects after the entrance animation. Previously the animation's leftover inline styles silently disabled both.
 - The name is now written in lowercase ("ayush sinha") across the site:
   - the header logo and the About heading, which now reads "hi, i'm ayush."
   - the footer and all page titles and search descriptions

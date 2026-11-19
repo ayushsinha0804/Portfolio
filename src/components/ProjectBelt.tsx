@@ -178,7 +178,11 @@ export default function ProjectBelt() {
     }
     const ctx = gsap.context(() => {
       gsap.timeline({ onStart: () => el.classList.add('is-in') })
-        .from('.belt__item-inner', { yPercent: 130, rotate: (i) => (i % 2 ? 8 : -8), duration: 1.4, ease: 'expo', stagger: 0.06 })
+        // clearProps hands the cards back to CSS (resting tilt + hover pop) once they land
+        .from('.belt__item-inner', {
+          yPercent: 130, rotate: (i) => (i % 2 ? 8 : -8), duration: 1.4, ease: 'expo', stagger: 0.06,
+          clearProps: 'transform,translate,rotate,scale',
+        })
         .from('.belt__shape', { scale: 0.4, autoAlpha: 0, duration: 1.6, ease: 'expo' }, 0)
         .from('.belt__badge', { y: 80, rotate: -40, autoAlpha: 0, duration: 1.4, ease: 'expo' }, 0.3)
         .from('.home-bar > *', { y: 30, autoAlpha: 0, duration: 1, ease: 'expo', stagger: 0.08 }, 0.5)

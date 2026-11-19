@@ -396,14 +396,16 @@ body.is-transitioning .page-transition { pointer-events: auto; }
 }
 .belt:not(.is-in) .belt__item { visibility: hidden; }
 /* The project's silhouette. GSAP owns `transform` (intro); CSS uses
-   `rotate` for the resting tilt and `translate` for hover. */
+   `rotate` for the resting tilt and `translate`/`scale` for the hover pop. */
 .belt__item-inner {
   position: relative; flex: 0 0 auto; overflow: hidden;
   width: calc(var(--shape-scale, 1) * 100%); aspect-ratio: var(--shape-aspect, 1);
   border-radius: var(--shape-radius, 50%); background: var(--card-bg); color: var(--card-fg);
   rotate: var(--shape-tilt, 0deg);
   box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--ink) 45%, transparent);
-  transition: translate 0.7s var(--ease-soft), rotate 0.7s var(--ease-soft);
+  transition:
+    translate 0.7s var(--ease-soft), rotate 0.7s var(--ease-soft),
+    scale 0.7s var(--ease-soft), box-shadow 0.7s var(--ease-soft);
 }
 .belt__item-body {
   position: absolute; inset: 0; padding: var(--shape-pad, 15%); z-index: 1;
@@ -415,8 +417,17 @@ body.is-transitioning .page-transition { pointer-events: auto; }
 .belt__item-art svg { width: 100%; height: auto; }
 .belt__item-title { font-family: var(--font-display); font-weight: var(--display-weight); text-transform: uppercase; font-size: clamp(1.3rem, 0.85rem + 0.95vw, 2rem); line-height: 0.95; }
 .belt__item-kicker { font-size: 12px; margin-top: 2px; } /* full opacity: AA contrast on every shape colour */
+.belt__item:focus-visible { outline: none; z-index: 200 !important; }
+.belt__item:focus-visible .belt__item-inner {
+  translate: 0 -18px; scale: 1.06; rotate: calc(var(--shape-tilt, 0deg) * -1.5);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--accent), 0 48px 80px -34px color-mix(in srgb, var(--ink) 55%, transparent);
+}
 @media (hover: hover) and (pointer: fine) {
-  .belt__item:hover .belt__item-inner { translate: 0 -14px; rotate: calc(var(--shape-tilt, 0deg) * -1.5); }
+  .belt__item:hover { z-index: 200 !important; } /* above the per-frame stacking set by the belt */
+  .belt__item:hover .belt__item-inner {
+    translate: 0 -18px; scale: 1.06; rotate: calc(var(--shape-tilt, 0deg) * -1.5);
+    box-shadow: 0 48px 80px -34px color-mix(in srgb, var(--ink) 55%, transparent);
+  }
   .belt__item:hover .belt__item-art { transform: scale(1.08) rotate(5deg); }
 }
 
