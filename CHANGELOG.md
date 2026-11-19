@@ -5,6 +5,13 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 
 ---
 
+## 2026-11-20 — Belt drift
+
+### Fixed
+- The home page projects drift on their own again while the mouse is on the page. Previously the drift paused whenever the cursor was anywhere over the belt, which covers most of the screen; now it pauses only while a project card is hovered.
+
+---
+
 ## 2026-11-19 — Lowercase name
 
 ### Changed

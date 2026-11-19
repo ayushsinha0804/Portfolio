@@ -140,11 +140,14 @@ export default function ProjectBelt() {
     window.addEventListener('pointerup', onUp)
     window.addEventListener('pointercancel', onUp)
     el.addEventListener('click', onClick, true)
-    const onEnter = (e: PointerEvent) => { if (e.pointerType === 'mouse') s.hovering = true }
+    // drift pauses only while the mouse is on a project card, not anywhere over the belt
+    const onOver = (e: PointerEvent) => {
+      s.hovering = e.pointerType === 'mouse' && !!(e.target as Element).closest?.('.belt__item')
+    }
     const onLeave = () => { s.hovering = false }
     // arrow keys only steer the belt while focus is inside it
     el.addEventListener('keydown', onKey)
-    el.addEventListener('pointerenter', onEnter)
+    el.addEventListener('pointerover', onOver)
     el.addEventListener('pointerleave', onLeave)
     return () => {
       el.removeEventListener('wheel', onWheel)
@@ -154,7 +157,7 @@ export default function ProjectBelt() {
       window.removeEventListener('pointercancel', onUp)
       el.removeEventListener('click', onClick, true)
       el.removeEventListener('keydown', onKey)
-      el.removeEventListener('pointerenter', onEnter)
+      el.removeEventListener('pointerover', onOver)
       el.removeEventListener('pointerleave', onLeave)
     }
   }, [])
