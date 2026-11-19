@@ -45,13 +45,13 @@ export default function Portrait() {
         <span className="portrait__piece portrait__piece--b" aria-hidden="true"><Glyph name="braces" /></span>
         <figure className="portrait__frame" data-cursor="Hello">
           <div className="portrait__media">
-            <img src={portrait} alt="Ayush Sinha holding a white cat" width={720} height={1280} loading="lazy" decoding="async" />
+            <img src={portrait} alt="ayush sinha holding a white cat" width={720} height={1280} loading="lazy" decoding="async" />
           </div>
           <span className="portrait__tint" aria-hidden="true" />
         </figure>
       </div>
       <div className="portrait__text">
-        <Reveal as="h2" className="portrait__title" mode="chars">Hi, I’m Ayush.</Reveal>
+        <Reveal as="h2" className="portrait__title" mode="chars">hi, i’m ayush.</Reveal>
         <Reveal as="p" className="portrait__lead">
           I enjoy creating things that live on the internet — and making sure they keep working once they’re out there.
         </Reveal>

@@ -9,41 +9,41 @@ export type PageMeta = { path: string; title: string; description: string; image
 export const pages: PageMeta[] = [
   {
     path: '/',
-    title: 'Ayush Sinha — Full-stack developer',
+    title: 'ayush sinha — Full-stack developer',
     description:
-      'Ayush Sinha is a full-stack developer from Delhi, India, shipping across backend, frontend and deployment with Node.js, TypeScript, PostgreSQL, React and Flutter.',
+      'ayush sinha is a full-stack developer from Delhi, India, shipping across backend, frontend and deployment with Node.js, TypeScript, PostgreSQL, React and Flutter.',
     image: 'og/default.png',
   },
   {
     path: '/work',
-    title: 'Work — Ayush Sinha',
+    title: 'Work — ayush sinha',
     description:
-      'Projects by Ayush Sinha across full-stack engineering, machine learning and security — from a group-travel API with 750 tests to an image-captioning web app.',
+      'Projects by ayush sinha across full-stack engineering, machine learning and security — from a group-travel API with 750 tests to an image-captioning web app.',
     image: 'og/default.png',
   },
   {
     path: '/experience',
-    title: 'Experience — Ayush Sinha',
+    title: 'Experience — ayush sinha',
     description:
       'Web developer intern at Electronic Point, cyber security trainee at Ernst & Young and intern at HighRadius.',
     image: 'og/default.png',
   },
   {
     path: '/about',
-    title: 'About — Ayush Sinha',
+    title: 'About — ayush sinha',
     description:
       'Full-stack developer from Delhi who verifies everything before it ships. Toolkit, education and certifications.',
     image: 'og/default.png',
   },
   {
     path: '/contact',
-    title: 'Contact — Ayush Sinha',
+    title: 'Contact — ayush sinha',
     description: 'Open to full-stack and backend roles. Email, GitHub, LinkedIn and resume.',
     image: 'og/default.png',
   },
   ...projects.map((p) => ({
     path: `/work/${p.slug}`,
-    title: `${p.title} — Ayush Sinha`,
+    title: `${p.title} — ayush sinha`,
     description: p.summary,
     image: `og/${p.slug}.png`,
   })),

@@ -45,9 +45,9 @@ export default function Header() {
           </TLink>
         </div>
         <div className="site-header__brand">
-          <TLink to="/" className="site-header__brand-link" aria-label="Ayush Sinha, home">
+          <TLink to="/" className="site-header__brand-link" aria-label="ayush sinha, home">
             <span className="site-header__brand-track">
-              <span className="site-header__brand-full">Ayush Sinha</span>
+              <span className="site-header__brand-full">ayush sinha</span>
               <span className="site-header__brand-mark" aria-hidden="true">
                 <span className="rhombus" />
               </span>

@@ -144,7 +144,7 @@
 .portrait__piece--a { width: clamp(48px, 6vw, 90px); left: 4%; top: 8%; color: var(--ochre); }
 .portrait__piece--b { width: clamp(60px, 8vw, 120px); right: 2%; bottom: 6%; color: var(--accent); }
 .portrait__title {
-  font-family: var(--font-display); font-weight: var(--display-weight); text-transform: uppercase; color: var(--accent);
+  font-family: var(--font-display); font-weight: var(--display-weight); text-transform: lowercase; color: var(--accent);
   font-size: var(--text-hero); line-height: 0.92;
 }
 .portrait__lead { margin-top: var(--space-s); font-size: var(--text-large); line-height: 1.25; max-width: 560px; }

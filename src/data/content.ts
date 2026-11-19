@@ -33,7 +33,7 @@ export type Project = {
 }
 
 export const person = {
-  name: 'Ayush Sinha',
+  name: 'ayush sinha',
   role: 'Full-stack developer',
   location: 'Delhi, India',
   timezone: 'Asia/Kolkata',

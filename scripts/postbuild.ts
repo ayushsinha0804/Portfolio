@@ -61,7 +61,7 @@ for (const m of pages) {
 writeFileSync(
   join(DIST, '404.html'),
   render(
-    { path: null, title: 'Page not found — Ayush Sinha', description: 'This page could not be found.', image: 'og/default.png' },
+    { path: null, title: 'Page not found — ayush sinha', description: 'This page could not be found.', image: 'og/default.png' },
     '  <meta name="robots" content="noindex" />\n  ',
   ),
 )

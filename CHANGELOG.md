@@ -5,6 +5,17 @@ Live site: https://ayushsinha0804.github.io/Portfolio/
 
 ---
 
+## 2026-11-19 — Lowercase name
+
+### Changed
+- The name is now written in lowercase ("ayush sinha") across the site:
+  - the header logo and the About heading, which now reads "hi, i'm ayush."
+  - the footer and all page titles and search descriptions
+  - the link-preview images and the structured data
+- README rewritten for recruiters and developers.
+
+---
+
 ## 2026-11-15 — Copy
 
 ### Changed

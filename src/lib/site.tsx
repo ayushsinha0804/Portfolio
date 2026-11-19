@@ -74,7 +74,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   // Per-route <title> and description
   useEffect(() => {
     const m = metaFor(location.pathname)
-    document.title = m?.title ?? 'Page not found — Ayush Sinha'
+    document.title = m?.title ?? 'Page not found — ayush sinha'
     document.querySelector('meta[name="description"]')?.setAttribute('content', m?.description ?? '')
   }, [location.pathname])
 

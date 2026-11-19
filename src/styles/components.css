@@ -118,7 +118,7 @@ body.is-transitioning .page-transition { pointer-events: auto; }
 .site-header__brand-full, .site-header__brand-mark { grid-area: 1 / 1; justify-self: center; align-self: center; }
 .site-header__brand-full {
   font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.6rem, 1.2rem + 1vw, 2.3rem); line-height: 1;
-  text-transform: uppercase; white-space: nowrap;
+  text-transform: lowercase; white-space: nowrap;
   transition: transform 0.7s var(--ease-premium), opacity 0.3s;
 }
 .site-header__brand-mark { color: var(--accent); transform: scale(0); transition: transform 0.6s var(--ease-premium); }
