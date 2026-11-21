@@ -96,6 +96,26 @@ The site is served from the `/Portfolio/` sub-path, which is set by `base` in `v
 
 To deploy a fork, set **Settings → Pages → Source** to **GitHub Actions**.
 
+## Roadmap
+
+Planned improvements. Priorities may shift as new projects and roles come in.
+
+**Content**
+- [ ] Case studies with screenshots and architecture diagrams for every project
+- [ ] A writing section for technical notes and project write-ups
+- [ ] New projects added to the belt as they ship
+
+**Design and experience**
+- [ ] Dark theme that follows the system setting, with a manual toggle
+- [ ] Contact form with spam protection, alongside the email link
+- [ ] Pinned repositories and recent activity from GitHub on the Work page
+
+**Engineering**
+- [ ] Custom domain with HTTPS
+- [ ] End-to-end and visual regression tests in CI
+- [ ] Performance and accessibility budgets checked on every pull request
+- [ ] Privacy-friendly, cookie-free analytics
+
 ## Contact
 
 - **Email:** [ayushsxnha@gmail.com](mailto:ayushsxnha@gmail.com)
